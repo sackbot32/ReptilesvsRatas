@@ -3,7 +3,12 @@ using UnityEngine;
 public class TileComponent : MonoBehaviour
 {
     GameObject objectOnTile;
-    
+    public SpriteRenderer sRendrer;
+
+    private void Start()
+    {
+        sRendrer = GetComponent<SpriteRenderer>();
+    }
     public bool HasGameObject()
     {
         return objectOnTile != null;
