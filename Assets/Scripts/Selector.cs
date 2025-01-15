@@ -32,8 +32,11 @@ public class Selector : MonoBehaviour
 
         if (collision.GetComponent<ItemCard>() && itemForTile == null)
         {
-            itemForTile = Instantiate(collision.GetComponent<ItemCard>().item,new Vector3(transform.position.x, transform.position.y,0),Quaternion.identity);
-            itemForTile.transform.SetParent(transform,true);
+            if(CurrencyManager.instance.currency >= collision.GetComponent<ItemCard>().item.GetComponent<LizardObject>().lizard.lizardPrice) 
+            { 
+                itemForTile = Instantiate(collision.GetComponent<ItemCard>().item,new Vector3(transform.position.x, transform.position.y,0),Quaternion.identity);
+                itemForTile.transform.SetParent(transform,true);
+            }
         }
     }
 

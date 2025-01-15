@@ -13,7 +13,7 @@ public class RatHealth : MonoBehaviour, IHealth
     {
         bool dead = false;
         currentHealth -= damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             dead = true;
             currentHealth = 0;

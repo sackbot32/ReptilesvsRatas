@@ -8,26 +8,20 @@ public class RatBasicBehaviour : MonoBehaviour
     public Vector3 direction;
     public float timeBetweenAttacks;
     public float damage;
-    private LizardHealth lizardHealth;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.GetComponent<LizardHealth>() != null)
-        {
-            lizardHealth = collision.gameObject.GetComponent<LizardHealth>();
-            StartCoroutine(AttackCoroutine());
-        }
-    }
+    [HideInInspector]
+    public LizardHealth lizardHealth;
+    
 
     // Update is called once per frame
     void Update()
     {
         if(lizardHealth == null)
         {
-            transform.position = Vector2.Lerp(transform.position,transform.position + direction, Time.deltaTime*speed);
+            transform.position = Vector3.Lerp(transform.position,transform.position + direction, Time.deltaTime*speed);
         }
     }
 
-    IEnumerator AttackCoroutine()
+    public IEnumerator AttackCoroutine()
     {
         WaitForSeconds wait = new WaitForSeconds(timeBetweenAttacks);
         while(lizardHealth != null)

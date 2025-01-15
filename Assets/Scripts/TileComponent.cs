@@ -43,4 +43,10 @@ public class TileComponent : MonoBehaviour
         //Destroy(newObject);
         return beenSet;
     }
+
+    public void RemoveGameObject()
+    {
+        Destroy(objectOnTile);
+        objectOnTile = null;
+    }
 }
