@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using Unity.VisualScripting;
 
 [Serializable]
 public class TileCollection
@@ -23,6 +24,7 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     public List<TileCollection> lines;
     public Transform selector;
+    public Selector selectComponent;
     //Data
     Vector2 touchPosition;
     Vector3 worldPosition;
@@ -30,6 +32,7 @@ public class GridManager : MonoBehaviour
     private void Start()
     {
         instance = this;
+        selectComponent = selector.GetComponent<Selector>();
     }
     private void OnEnable()
     {
@@ -49,21 +52,45 @@ public class GridManager : MonoBehaviour
             {
                 allTile.sRendrer.color = Color.white;
             }
+
+            if(selectComponent.currentTile == null && selectComponent.itemForTile != null)
+            {
+                Destroy(selectComponent.itemForTile);
+            }
+
+            if(selectComponent.currentTile != null && selectComponent.itemForTile != null)
+            {
+                LizardObject lizardSpawner = selectComponent.itemForTile.GetComponent<LizardObject>();
+                selectComponent.currentTile.SetGameObject(lizardSpawner.lizard.lizardObject,lizardSpawner.lizard.offsetForCenter);
+                selectComponent.itemForTile.transform.parent = null;
+                Destroy(selectComponent.itemForTile);
+                selectComponent.itemForTile = null;
+
+            } else
+            {
+                if(selectComponent.itemForTile != null)
+                {
+                    selectComponent.itemForTile.transform.parent = null;
+                    selectComponent.itemForTile = null;
+                }
+                
+            }
+            if(selectComponent.currentTile != null)
+            {
+                selectComponent.currentTile = null;
+            }
+            selectComponent.itemForTile = null;
             selector.position = new Vector2(1000, 1000);
         } else
         {
             touchPosition = new Vector2();
             foreach (Touch touch in Touch.activeTouches)
             {
-                touchPosition = touch.screenPosition; //Sum up th positions of all touches
+                touchPosition = touch.screenPosition; 
             }
 
-            //Get the average position of all touches 
-            //touchPosition /= Touch.activeTouches.Count;
 
-            //convert the touch position to the unity world space
             worldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
-            //print(worldPosition);
             selector.position = worldPosition;
         }
 
