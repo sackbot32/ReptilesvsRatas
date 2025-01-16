@@ -5977,6 +5977,37 @@ MonoBehaviour:
   startingCurrency: 100
   currency: 0
   currencyText: {fileID: 301244206}
+--- !u!1 &958700042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958700043}
+  m_Layer: 0
+  m_Name: EnemyParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &958700043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958700042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966119314
 GameObject:
   m_ObjectHideFlags: 0
@@ -13185,6 +13216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savedWaves:
   - wave: 0100000000000000000000000100000000000000
+  - wave: 0000000001000000010000000000000000000000
+  - wave: 0100000001000000000000000000000001000000
+  - wave: 0000000000000000000000000100000001000000
   gameWaves:
   - wave: 0100000000000000000000000100000000000000
   spawnPoints:
@@ -13193,10 +13227,18 @@ MonoBehaviour:
   - {fileID: 807935742}
   - {fileID: 1914252417}
   - {fileID: 205986472}
+  enemyParent: {fileID: 958700043}
   rats:
   - {fileID: 4614961230620087972, guid: 1a66816d0f55e0246b759dba0913fb86, type: 3}
   - {fileID: 4614961230620087972, guid: 1a66816d0f55e0246b759dba0913fb86, type: 3}
   - {fileID: 4614961230620087972, guid: 1a66816d0f55e0246b759dba0913fb86, type: 3}
+  maxHordeHealth: 0
+  healthBetweenWaves: 40
+  currentWavesHealth: 0
+  lastHealth: 0
+  timeUntilFirstWave: 2
+  timeBetweenWaves: 5
+  currentTime: 0
 --- !u!1 &2042160518
 GameObject:
   m_ObjectHideFlags: 0
@@ -13856,3 +13898,4 @@ SceneRoots:
   - {fileID: 2002669070}
   - {fileID: 2074099245}
   - {fileID: 950176824}
+  - {fileID: 958700043}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,31 +19,54 @@ public class RatWave
 
 public class RatHordeManager : MonoBehaviour
 {
+    public static RatHordeManager instance;
     public List<RatWave> savedWaves;
     public List<RatWave> gameWaves;
     public Transform[] spawnPoints;
+    [SerializeField]
+    private Transform enemyParent;
     public GameObject[] rats;
     //0 normal
     //1 heavy
     //2 heavier
-    public int hordeHealth;
+    public int maxHordeHealth;
     public int healthBetweenWaves;
+    [SerializeField]
+    private int currentWavesHealth;
+    [SerializeField]
     private int lastHealth;
-
+    public float timeUntilFirstWave;
+    public float timeBetweenWaves;
+    public float currentTime;
+    private bool noWaveLeft;
     void Start()
     {
+        instance = this;
         EqualizeWaves();
-        hordeHealth = GetHordeHealth();
-        lastHealth = hordeHealth;
+        maxHordeHealth = GetHordeHealth();
+        currentWavesHealth = maxHordeHealth;
+        lastHealth = currentWavesHealth;
+        StartCoroutine(WaveTimeSystem());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(healthBetweenWaves >= (lastHealth - hordeHealth))
+        if (noWaveLeft && enemyParent.childCount == 1)
         {
-            lastHealth = healthBetweenWaves;
-            SpawnNextWave();
+            enemyParent.GetChild(0).gameObject.GetComponent<RatHealth>().winDeath = true;
+        }
+    }
+
+    public void DamageHorde(int damage)
+    {
+        currentWavesHealth -= damage;
+        if (healthBetweenWaves <= (lastHealth - currentWavesHealth))
+        {
+            print("reached");
+            currentTime = 0;
+            lastHealth = currentWavesHealth;
+            noWaveLeft = SpawnNextWave();
         }
     }
 
@@ -60,7 +84,7 @@ public class RatHordeManager : MonoBehaviour
                     GameObject rat = ReturnRatType(gameWaves[0].wave[i]);
                     if(rat != null)
                     {
-                        Instantiate(rat, spawnPoints[i].position,Quaternion.identity);
+                        Instantiate(rat, spawnPoints[i].position,Quaternion.identity,enemyParent);
                     }
             
                 }
@@ -76,6 +100,21 @@ public class RatHordeManager : MonoBehaviour
         return noWaveLeft;
     }
 
+    IEnumerator WaveTimeSystem()
+    {
+        yield return new WaitForSeconds(timeUntilFirstWave);
+        SpawnNextWave();
+        while (true)
+        {
+            currentTime += Time.deltaTime;
+            if(currentTime >= timeBetweenWaves)
+            {
+                currentTime = 0;
+                SpawnNextWave();
+            }
+            yield return null;
+        }
+    }
 
     public GameObject ReturnRatType(RatType type)
     {

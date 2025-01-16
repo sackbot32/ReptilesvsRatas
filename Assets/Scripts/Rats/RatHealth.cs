@@ -4,6 +4,7 @@ public class RatHealth : MonoBehaviour, IHealth
 {
     public float maxHealth;
     private float currentHealth;
+    public bool winDeath;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class RatHealth : MonoBehaviour, IHealth
     {
         bool dead = false;
         currentHealth -= damage;
+        RatHordeManager.instance.DamageHorde(Mathf.CeilToInt(damage));
         if (currentHealth <= 0)
         {
             dead = true;
@@ -33,6 +35,10 @@ public class RatHealth : MonoBehaviour, IHealth
 
     public void Death()
     {
+        if(winDeath)
+        {
+            print("Win big");
+        }
         Destroy(gameObject);
     }
 
