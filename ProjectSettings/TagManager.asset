@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ItemForTile
   - Lizard
+  - Rat
   layers:
   - Default
   - TransparentFX

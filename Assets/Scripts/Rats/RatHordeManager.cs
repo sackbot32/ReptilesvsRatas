@@ -42,6 +42,7 @@ public class RatHordeManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        noWaveLeft = false;
         EqualizeWaves();
         maxHordeHealth = GetHordeHealth();
         currentWavesHealth = maxHordeHealth;
@@ -52,19 +53,24 @@ public class RatHordeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (noWaveLeft && enemyParent.childCount == 1)
+        if (noWaveLeft && enemyParent.childCount <= 0)
         {
-            enemyParent.GetChild(0).gameObject.GetComponent<RatHealth>().winDeath = true;
+            print("win big");
         }
     }
 
     public void DamageHorde(int damage)
     {
+        currentTime = 0;
         currentWavesHealth -= damage;
+        if(currentWavesHealth <= 0)
+        {
+            currentWavesHealth = 0;
+            SpawnNextWave();
+        }
         if (healthBetweenWaves <= (lastHealth - currentWavesHealth))
         {
             print("reached");
-            currentTime = 0;
             lastHealth = currentWavesHealth;
             noWaveLeft = SpawnNextWave();
         }
@@ -72,7 +78,6 @@ public class RatHordeManager : MonoBehaviour
 
     public bool SpawnNextWave()
     {
-        bool noWaveLeft = false;
         if(gameWaves.Count > 0)
         {
             if (gameWaves[0] != null)
@@ -116,7 +121,8 @@ public class RatHordeManager : MonoBehaviour
             if(currentTime >= timeBetweenWaves)
             {
                 currentTime = 0;
-                SpawnNextWave();
+                DamageHorde(healthBetweenWaves);
+                //SpawnNextWave();
             }
             yield return null;
         }

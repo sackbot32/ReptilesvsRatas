@@ -6260,7 +6260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4088832ad4bdffd4ab836b9b9b192a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 8430417772492708237, guid: bb6265af539157e4e9d1ffe0067febe4, type: 3}
+  item: {fileID: 8430417772492708237, guid: c85a858603a8c8343a5db6d8e4c74edf, type: 3}
   priceText: {fileID: 35433730}
   canBuy: 0
   checkCanBuy: 1
@@ -13233,7 +13233,7 @@ MonoBehaviour:
   - {fileID: 4614961230620087972, guid: 1a66816d0f55e0246b759dba0913fb86, type: 3}
   - {fileID: 4614961230620087972, guid: 1a66816d0f55e0246b759dba0913fb86, type: 3}
   maxHordeHealth: 0
-  healthBetweenWaves: 40
+  healthBetweenWaves: 10
   currentWavesHealth: 0
   lastHealth: 0
   timeUntilFirstWave: 2
