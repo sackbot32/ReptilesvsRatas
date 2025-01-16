@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CustomEditor(typeof(GridManager))]
-public class GridManagerInspector : Editor
+public class GridManagerEditor : Editor
 {
     int columnLength = 0;
     int lineLength = 0;
