@@ -106,7 +106,13 @@ public class RatHordeManager : MonoBehaviour
         SpawnNextWave();
         while (true)
         {
-            currentTime += Time.deltaTime;
+            if(gameWaves.Count != 0)
+            {
+                currentTime += Time.deltaTime;
+            } else
+            {
+                currentTime = 0;
+            }
             if(currentTime >= timeBetweenWaves)
             {
                 currentTime = 0;
