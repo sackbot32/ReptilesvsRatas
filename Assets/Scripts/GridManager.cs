@@ -61,12 +61,15 @@ public class GridManager : MonoBehaviour
             if(selectComponent.currentTile != null && selectComponent.itemForTile != null)
             {
                 LizardObject lizardSpawner = selectComponent.itemForTile.GetComponent<LizardObject>();
-                if(lizardSpawner.lizard.lizardObject != null && CurrencyManager.instance.currency >= lizardSpawner.lizard.lizardPrice)
+                if(lizardSpawner.lizard.lizardObject != null && CurrencyManager.instance.currency >= lizardSpawner.lizard.lizardPrice )
                 {
-                    print("bought");
-                    CurrencyManager.instance.ChangeCurrency(-lizardSpawner.lizard.lizardPrice);
-                    selectComponent.currentTile.SetGameObject(lizardSpawner.lizard.lizardObject,lizardSpawner.lizard.offsetForCenter);
-                } else
+                    if (!selectComponent.currentTile.HasGameObject())
+                    {
+                        print("bought");
+                        CurrencyManager.instance.ChangeCurrency(-lizardSpawner.lizard.lizardPrice);
+                        selectComponent.currentTile.SetGameObject(lizardSpawner.lizard.lizardObject,lizardSpawner.lizard.offsetForCenter);
+                    }
+                } else if(lizardSpawner.lizard.lizardObject.gameObject == null)
                 {
                     selectComponent.currentTile.RemoveGameObject();
                 }
