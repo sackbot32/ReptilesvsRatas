@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TongueAttack : MonoBehaviour
 {
+    public float damage;
     public float timeBetweenAttacks;
     public Transform tongue;
     private AttackHitBox hitBox;
@@ -15,6 +16,7 @@ public class TongueAttack : MonoBehaviour
     {
         chamaleonAnim = GetComponent<Animator>();
         hitBox = tongue.gameObject.GetComponent<AttackHitBox>();
+        hitBox.damage = damage;
         detector = GetComponent<RatDetector>();
     }
 

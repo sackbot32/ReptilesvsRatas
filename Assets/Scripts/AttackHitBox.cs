@@ -15,7 +15,7 @@ public class AttackHitBox : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+        print("attackReached " + other.gameObject.name);
         if(other.gameObject.TryGetComponent<IHealth>(out IHealth health) && tags.Contains(other.tag) && !hitObjects.Contains(other.gameObject))
         {
             health.Damage(damage);

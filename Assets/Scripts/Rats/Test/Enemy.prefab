@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  winDeath: 0
 --- !u!65 &8103092377787663315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.36, z: 1}
-  m_Center: {x: -0.12, y: -0.19, z: 0}
+  m_Size: {x: 3, y: 1.36, z: 1}
+  m_Center: {x: -0.46, y: -0.19, z: 0}
 --- !u!54 &1505890966674836398
 Rigidbody:
   m_ObjectHideFlags: 0
