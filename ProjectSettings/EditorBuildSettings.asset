@@ -15,6 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/sama nivelo.unity
     guid: d2e782f7e7f1ef64db9b591a42ce5cd4
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 5455dc107f3f55343a571155ec4ee9d0, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bf578640c739c9f458afca6991079206, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 65b7bb561592810469f5e0e7d5d12b98, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
