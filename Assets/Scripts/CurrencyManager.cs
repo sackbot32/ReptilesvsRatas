@@ -8,6 +8,7 @@ public class CurrencyManager : MonoBehaviour
     public int startingCurrency;
     public int currency;
     public TMP_Text currencyText;
+    public int maxCurrency;
     void Start()
     {
         instance = this;
@@ -18,7 +19,8 @@ public class CurrencyManager : MonoBehaviour
     
     public void ChangeCurrency(int addedCurrency)
     {
-        currency += addedCurrency;
+        currency = Mathf.Clamp(currency + addedCurrency,0,maxCurrency);
+
 
         currencyText.text = currency.ToString("000");
     }

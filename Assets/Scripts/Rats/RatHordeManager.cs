@@ -56,6 +56,7 @@ public class RatHordeManager : MonoBehaviour
         if (noWaveLeft && enemyParent.childCount <= 0)
         {
             print("win big");
+            GameManager.instance.EndGame(true);
         }
     }
 
@@ -166,7 +167,7 @@ public class RatHordeManager : MonoBehaviour
 
                         break;
                     case RatType.Normal:
-                        total += 10;
+                        
                         break;
                     case RatType.Heavy:
                         total += 25;
