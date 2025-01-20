@@ -10,7 +10,12 @@ public class RatBasicBehaviour : MonoBehaviour
     public float damage;
     [HideInInspector]
     public LizardHealth lizardHealth;
-    
+    private Animator anim;
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -26,11 +31,21 @@ public class RatBasicBehaviour : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(timeBetweenAttacks);
         while(lizardHealth != null)
         {
-            if (lizardHealth.Damage(damage))
-            {
-                lizardHealth = null;
-            }
+            anim.Play("Bite");
             yield return wait;
         }
+        
+        anim.Play("Walk");
     }
+
+    public void Attack()
+    {
+        if (lizardHealth != null &&lizardHealth.Damage(damage))
+        {
+            lizardHealth = null;
+        }
+        anim.SetTrigger("BiteDone");
+    }
+
+
 }

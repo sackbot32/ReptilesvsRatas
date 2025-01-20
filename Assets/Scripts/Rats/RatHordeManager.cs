@@ -169,10 +169,10 @@ public class RatHordeManager : MonoBehaviour
                         total += 10;
                         break;
                     case RatType.Heavy:
-                        total += 20;
+                        total += 25;
                         break;
                     case RatType.Heavier:
-                        total += 30;
+                        total += 50;
                         break;
                     default:
                         break;
