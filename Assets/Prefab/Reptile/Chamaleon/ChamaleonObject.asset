@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChamaleonObject
   m_EditorClassIdentifier: 
   lizardName: Chamaleon
-  lizardPrice: 10
+  lizardPrice: 75
   lizardImage: {fileID: -5869990597311076520, guid: ddc7fe57c31938d4d9307583d39707d3, type: 3}
   lizardObject: {fileID: 2056787837172581546, guid: bf693292d3c568440b97d36ba1ccb0b5, type: 3}
   offsetForCenter: {x: 0, y: 0, z: 0}

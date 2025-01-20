@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9c32527c3f62747aeefac9b8021907, type: 3}
   m_Name: LizardRemover
   m_EditorClassIdentifier: 
-  lizardName: Test
+  lizardName: LizardRemover
   lizardPrice: 0
-  lizardImage: {fileID: 21300000, guid: a619a5de098875f45aaced211afe2821, type: 3}
+  lizardImage: {fileID: 6006108930183183395, guid: 3ba75ccfe8500a244af4569252a31c2f, type: 3}
   lizardObject: {fileID: 0}
   offsetForCenter: {x: 0, y: 0.25, z: 0}

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba85883a212bc8418ecebdc64d7ce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
 --- !u!65 &6443233028453315302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df6c6860de84574fb3b8c4c9570f369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  timeBetweenAttacks: 1
+  damage: 2.5
+  timeBetweenAttacks: 2
   tongue: {fileID: 3408782407323144332}
   forwardDuration: 0.5
   backDuration: 0.25

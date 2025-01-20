@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TurtleObject
   m_EditorClassIdentifier: 
   lizardName: Turtle
-  lizardPrice: 20
+  lizardPrice: 50
   lizardImage: {fileID: 3870821442282959971, guid: a9e07b4cda7d6fc46804117edbfcd270, type: 3}
   lizardObject: {fileID: 2056787837172581546, guid: f582d51470fcdce41bf50ff2143d38c4, type: 3}
   offsetForCenter: {x: 0, y: 0, z: 0}

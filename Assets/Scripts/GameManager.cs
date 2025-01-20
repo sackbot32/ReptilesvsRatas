@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,12 +6,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public EndLevel endLevel;
     private int point;
+    public TMP_Text text;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Time.timeScale = 1;
         instance = this;
+        text.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
     }
 
     public void AddPoint(int addedPoint)
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
             int oldHighScore = PlayerPrefs.GetInt("HighScore");
             if(oldHighScore < point) 
             {
+                text.text = "High Score: " + point;
                 PlayerPrefs.SetInt("HighScore",point);
             }
             endLevel.ChangePanel(Color.green, "You win");
