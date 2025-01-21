@@ -9,7 +9,7 @@ public class CurrencyManager : MonoBehaviour
     public int currency;
     public TMP_Text currencyText;
     public int maxCurrency;
-    void Start()
+    void Awake()
     {
         instance = this;
         currency = startingCurrency;
