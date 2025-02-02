@@ -1,0 +1,12 @@
+# ninja log v5
+29	1294	7602304729748087	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a9a6f777992b21bd
+7	1357	7602304731541932	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	59130acdf1b2764d
+1297	1706	7602304734582306	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	3e6ab8726780241c
+34	1751	7602304734986620	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	42070db3577df727
+18	1952	7602304737398295	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	3dd17516825127e7
+41	1966	7602304737661041	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	5d526f7e8444a457
+13	1985	7602304737917702	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	bf24aeda58ef946b
+1706	2015	7602304738399457	D:/Unity Proyectos/ReptilesvsRatas/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4o5s692h/obj/armeabi-v7a/libswappywrapper.so	1029e0bee9ac1d75
+49	2076	7602304738949922	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	3953e3863f86b7d5
+1	2147	7602304739649211	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	457e11d98bf2864
+2147	2260	7602304740892068	D:/Unity Proyectos/ReptilesvsRatas/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4o5s692h/obj/armeabi-v7a/libgame.so	f71348d851961ec3
